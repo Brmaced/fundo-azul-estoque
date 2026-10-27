@@ -118,4 +118,4 @@ No Windows, use `.\mvnw.cmd spring-boot:run`. As migrations são aplicadas autom
 
 ## Dados pessoais e LGPD
 
-O sistema guarda apenas dados de usuários do sistema (nome, e-mail e senha com hash). Os dados usados em testes são fictícios. [PREENCHER: se passar a guardar clientes, liste os campos e justifique cada um]
+O sistema guarda apenas dados dos usuários que operam o sistema (nome, e-mail e senha com hash). Todos os dados de teste são fictícios. Não há cadastro de clientes.
