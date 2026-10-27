@@ -1,0 +1,17 @@
+Oque é:
+API REST de controle de estoque e vendas para uma loja de aquarismo a loja vende tanques peixes acessorios ração corais e skimmers
+o sistema registra produtos entradas de estoque vendas e perdas de animais vivos.
+
+Problema que Resolve:
+A ideia do projeto e para uma loja Pequena que precisa saber quanto tem cada produto oque foi vendido e oque peredeu
+sem dependeder de caderno ou planilha o sistema impede vender o que nao existe e guarda o historico de cada movimentação.
+
+Tecnlogias usadas:
+Java 21, Spring boot, MySQL.
+
+Entidades:
+categoria, produto, movimentação, venda, itemVenda, usuario
+
+Perfis de acesso:
+ADMIN
+VENDEDOR: onde ele regista vendas e consulta produtos sem ajustar estoque nem cancelar vendas
