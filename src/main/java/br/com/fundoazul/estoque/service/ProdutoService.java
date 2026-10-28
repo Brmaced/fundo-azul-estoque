@@ -1,5 +1,7 @@
 package br.com.fundoazul.estoque.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,9 +41,9 @@ public class ProdutoService {
         return ProdutoResponse.de(produto);
     }
 
-    @Transactional (readOnly = true)
-    public ProdutoResponse listar(Long id) {
-        return ProdutoResponse.de(obter(id));
+    @Transactional(readOnly = true)
+    public List<ProdutoResponse> listar() {
+        return produtoRepository.findAll().stream().map(ProdutoResponse::de).toList();
     }
 
 
