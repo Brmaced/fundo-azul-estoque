@@ -10,6 +10,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import jakarta.persistence.OptimisticLockException;
+
 // Classe responsável por tratar exceções lançadas durante a execução da aplicação
 @RestControllerAdvice
 public class TratadorDeErros {
@@ -32,4 +34,16 @@ public class TratadorDeErros {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(Map.of("erro", "Corpo da requisição inválido: " + e.getMessage()));
     }
+    
+    @ExceptionHandler (RegraDeNegocioException.class)
+    public ResponseEntity<Map<String, String>> regraDeNegocio(RegraDeNegocioException e) {
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(Map.of("erro", e.getMessage()));
+    }
+    @ExceptionHandler (OptimisticLockException.class)
+    public ResponseEntity<Map<String, String>> otimista(OptimisticLockException e) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("erro", e.getMessage()));
+    }
+
 } 
+
+

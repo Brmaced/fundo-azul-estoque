@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import br.com.fundoazul.estoque.exception.RegraDeNegocioException;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -17,6 +18,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Version;
+
 
 // Classe que representa um produto no sistema de estoque
 @Entity
@@ -132,5 +134,20 @@ public class Produto {
 
     public void setVersao(Long versao) {
         this.versao = versao;
+    }
+
+public void movimentar(TipoMovimentacao tipo, int quantidade) {
+    if (quantidade <= 0) {
+        throw new RegraDeNegocioException("A quantidade deve ser maior que zero");
+    }
+    if (tipo.aumentaEstoque()) {
+        this.quantidadeAtual += quantidade;
+    } else {
+        if (quantidade > this.quantidadeAtual) {
+            throw new RegraDeNegocioException("Estoque insuficiente: disponível "
+                    + this.quantidadeAtual + ", solicitado " + quantidade);
+        }
+        this.quantidadeAtual -= quantidade;
+        }
     }
 }
