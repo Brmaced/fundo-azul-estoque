@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
+// Classe que representa uma categoria de produto no sistema de estoque
 @Entity
 @Table(name = "categoria")
 public class Categoria {

@@ -18,6 +18,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Version;
 
+// Classe que representa um produto no sistema de estoque
 @Entity
 @Table(name = "produto")
 public class Produto {
