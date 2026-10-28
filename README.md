@@ -14,7 +14,7 @@ Este sistema registra os produtos, cada movimentação de estoque e as vendas, e
 
 - [x] Projeto base com Spring Boot
 - [x] Banco de dados MySQL com migrations (Flyway)
-- [ ] CRUD de produtos com validação
+- [x] CRUD de produtos com validação
 - [ ] Movimentações de estoque (entrada, venda, perda, ajuste)
 - [ ] Vendas com vários itens, em transação
 - [ ] Login com perfis (`ADMIN` e `VENDEDOR`)
